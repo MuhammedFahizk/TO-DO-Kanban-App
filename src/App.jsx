@@ -7,8 +7,24 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { useSelector } from 'react-redux';
 import { update_task_status } from './Redux/TodoSlice';
 import { useDispatch } from 'react-redux';
-
+import Modal from './Component/Modal';
+import { useEffect, useState } from 'react';
+import instance from './Component/Api_instance';
+import { Navigate } from 'react-router-dom';
 function App() {
+  // useEffect ( () => {
+  //   instance.get('home')
+  // .then(async(res) => {
+  //   const data = await res.data
+  
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  //    window.location = '/'
+
+  // })
+  // })
+  const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
   const tasks = useSelector((state) => state.tasks);
   function onDragEnd(result) {
@@ -29,8 +45,12 @@ function App() {
         <DragDropContext onDragEnd={onDragEnd}>
 
       <div className="App">
+      {showModal? 
+        <Modal setShowModal = {setShowModal}/>:
+        null
+      }
         <Head/>
-        <ListTasks/>
+        <ListTasks setShowModal = {setShowModal}/>
         </div>
         </DragDropContext>
     </>

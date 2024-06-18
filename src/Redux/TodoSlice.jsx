@@ -18,9 +18,28 @@ export const taskSlice = createSlice({
             if (task) {
                 task.status = status;
             }
+        },
+        deleteTask: (state, action) => {
+            console.log(action.payload);
+            state.value = state.value.filter(item =>  {
+                return item.id !== action.payload
+            
+            })
+        },
+        Edit_task: (state, action) => {
+            console.log(action.payload);
+
+const { id,  description, date, taskName } = action.payload;
+const task = state.value.find(task => task.id === id);
+if (task) {
+    task.taskName = taskName
+    task.description = description;
+    task.date = date;
+
+}
         }
     }
 });
 
-export const { create_task, update_task_status } = taskSlice.actions;
+export const { create_task, update_task_status, deleteTask, Edit_task} = taskSlice.actions;
 export default taskSlice.reducer;
