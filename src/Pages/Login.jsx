@@ -5,7 +5,7 @@ import instance from'../Component/Api_instance'
 const LoginPage = () => {
 
   useEffect(() => {
-    instance.get('login')
+    instance.get('/login')
     .then((res) => {
 
     })
