@@ -10,7 +10,7 @@ const LoginPage = () => {
 
     })
     .catch((err) => {
-      window.location = '/'
+      // window.location = '/'
       console.log(err, 'login page error');
     })
   })
