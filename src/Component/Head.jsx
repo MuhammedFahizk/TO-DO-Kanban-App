@@ -35,6 +35,7 @@ const Head = () => {
       id: generateFourDigitUniqueId()
     };
     dispatch(create_task(newTask));
+    console.log(newTask.id);
     setFormData({
       id: '',
       taskName: '',
