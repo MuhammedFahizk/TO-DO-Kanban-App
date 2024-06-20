@@ -13,7 +13,7 @@ import instance from './Component/Api_instance';
 import { Navigate } from 'react-router-dom';
 function App() {
   useEffect ( () => {
-    instance.get('home')
+    instance.get('/home')
   .then(async(res) => {
     const data = await res.data
   
