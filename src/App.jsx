@@ -12,18 +12,18 @@ import { useEffect, useState } from 'react';
 import instance from './Component/Api_instance';
 import { Navigate } from 'react-router-dom';
 function App() {
-  // useEffect ( () => {
-  //   instance.get('home')
-  // .then(async(res) => {
-  //   const data = await res.data
+  useEffect ( () => {
+    instance.get('home')
+  .then(async(res) => {
+    const data = await res.data
   
-  // })
-  // .catch((err) => {
-  //   console.log(err);
-  //    window.location = '/'
+  })
+  .catch((err) => {
+    console.log(err);
+     window.location = '/'
 
-  // })
-  // })
+  })
+  })
   const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
   const tasks = useSelector((state) => state.tasks);
