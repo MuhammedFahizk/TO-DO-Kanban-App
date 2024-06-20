@@ -10,7 +10,8 @@ const LoginPage = () => {
 
     })
     .catch((err) => {
-      window.location = '/home'
+      window.location = '/'
+      console.log(err, 'login page error');
     })
   })
   const [ error, setError ] = useState ('')
